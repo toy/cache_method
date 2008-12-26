@@ -1,18 +1,18 @@
 CacheMethod
 ===========
 
-class Model < ActiveRecord::Base
-  def method
-    #some long calculations
+  class Model < ActiveRecord::Base
+    def method
+      #some long calculations
+    end
+    cache_method :method
   end
-  cache_method :method
-end
 
-m = Model.new
-m.method
-m.method # from cache
-m.calculate_method # aliased initial method
-m.update_method # aliased initial method
-m.reset_method # reset cache
+  m = Model.new
+  m.method
+  m.method # from cache
+  m.calculate_method # aliased initial method
+  m.update_method # aliased initial method
+  m.reset_method # reset cache
 
 Copyright (c) 2008 Ivan, released under the MIT license
