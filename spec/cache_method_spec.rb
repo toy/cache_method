@@ -1,13 +1,7 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-class Person
+class Person < ActiveRecord::Base
   include CacheMethod
-  def read_attribute(name)
-    (@attributes ||= {})[name.to_s]
-  end
-  def write_attribute(name, value)
-    (@attributes ||= {})[name.to_s] = value
-  end
   def uniq_value
     rand
   end
